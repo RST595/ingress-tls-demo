@@ -55,3 +55,6 @@
 * Check ingress controller pos name`kubectl -n ingress-nginx get pod`
 * Forward ingress controller `kubectl -n ingress-nginx port-forward pod/ingress-nginx-controller-7c6974c4d8-sz5zn --address 0.0.0.0 80:80 443:443`
 * Check website 'https://localhost'
+* Or run 'minikube ssh', then add host from ingress manifest to minikube /etc/hosts file,
+load cert inside minikube filesystem and after that,
+use 'curl --cacert tls.crt https://hostname' in minukube ssh session
