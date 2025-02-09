@@ -6,9 +6,9 @@ spec:
   tls:
     - secretName: exmp-https-tls
       hosts:
-        - exmp-https.com
+        - localhost
   rules:
-    - host: exmp-https.com
+    - host: localhost
       http:
         paths:
           - pathType: ImplementationSpecific

@@ -51,4 +51,7 @@
 
 * Create k8s secret `kubectl create secret tls exmp-https-tls --cert=tls.crt --key=tls.key`
 * Check created secret `kubectl get secret -o yaml`
-* Check result `curl --cacert tls.crt https://exmp-https.com`
+* Check result `curl --cacert tls.crt https://exmp-https.com` (if minikube not in docker)
+* Check ingress controller pos name`kubectl -n ingress-nginx get pod`
+* Forward ingress controller `kubectl -n ingress-nginx port-forward pod/ingress-nginx-controller-7c6974c4d8-sz5zn --address 0.0.0.0 80:80 443:443`
+* Check website 'https://localhost'
