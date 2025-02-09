@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background: url([[@{/../background.jpg}]]) no-repeat center center fixed;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header {
+            font-family: Thonburi;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #car-list {
+            margin-top: 80px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.34);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        button {
+            margin-top: 1950px;
+            round-clip: 5px;
+            font-size: 20px;
+            padding: 15px 30px;
+            background-color: #8a0606;
+            color: #0c0000;
+            border-radius: 10px;
+            border-color: #8a0606;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<h1 class="header">List of Cars</h1>
+
+<div id="car-list"></div>
+<script th:inline="javascript">
+    var cars = [[${carsList}]];
+
+    const carListDiv = document.getElementById('car-list');
+
+    const ul = document.createElement('ul');
+
+    cars.forEach(car => {
+        const li = document.createElement('li');
+        li.textContent = car;
+        ul.appendChild(li);
+    });
+
+    carListDiv.appendChild(ul);
+</script>
+
+<button onclick="back()">Back</button>
+<script>
+    function back() {
+        window.location.href = '/';
+    }
+</script>
+
+</body>
+</html>
